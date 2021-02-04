@@ -21,7 +21,13 @@ const CameraControls = () => {
   // Ref to the controls, so that we can update them on every frame using useFrame
   const controls = useRef();
   useFrame((state) => controls.current.update());
-  return <orbitControls ref={controls} args={[camera, domElement]} />;
+  return <orbitControls ref={controls} args={[camera, domElement]} 
+      enableZoom={false}
+      maxAzimuthAngle={Math.PI }
+      maxPolarAngle={Math.PI/2}
+      minAzimuthAngle={-Math.PI/4 }
+      minPolarAngle={Math.PI/4}
+  />;
 };
 
 const SpinningMesh = ({position,args,color})=>{
